@@ -1,3 +1,6 @@
 <template>
-    <h1>Hello World</h1>
+  <div id="app">
+      <h1>App</h1>
+      <router-view/>
+  </div>
 </template>

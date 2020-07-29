@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <cart></cart>
+    <p>Home</p>
+    <cart-btn msg="123"></cart-btn>
   </div>
 </template>
 
@@ -10,6 +10,8 @@ import cart from '@/components/Cart.vue'
 
 export default {
   name: 'Home',
-  components: [cart]
+  components: {
+    'cart-btn': cart
+  }
 }
 </script>
