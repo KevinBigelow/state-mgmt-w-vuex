@@ -1,0 +1,17 @@
+{
+  "coffee-one": {
+    "slug": "coffee-one",
+    "name": "Coffee One",
+    "pk": 1
+  },
+  "coffee-two": {
+    "slug": "coffee-two",
+    "name": "Coffee Two",
+    "pk": 2
+  },
+  "coffee-three": {
+    "slug": "coffee-three",
+    "name": "Coffee Three",
+    "pk": 3
+  }
+}
