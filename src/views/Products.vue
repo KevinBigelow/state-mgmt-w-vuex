@@ -17,7 +17,7 @@
 import axios from '@/axios'
 
 export default {
-  name: 'Home',
+  name: 'Products',
   data () {
     return {
       products: {}

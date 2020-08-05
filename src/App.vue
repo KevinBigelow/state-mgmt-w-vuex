@@ -5,7 +5,7 @@
               <span class="title is-4">My Awesome Store</span>
           </div>
           <div class="level-right">
-              <router-link :to="{name: 'Home'}" class="level-left button mr-2">View All Products</router-link>
+              <router-link :to="{name: 'Products'}" class="level-left button mr-2">View All Products</router-link>
               <cart-btn :count="cartLength" class="level-right"></cart-btn>
           </div>
       </div>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import cartBtn from '@/components/Cart.vue'
+import cartBtn from '@/components/CartButton.vue'
 import axios from '@/axios'
 
 export default {
