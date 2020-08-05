@@ -10,14 +10,19 @@ Vue.use(VueRouter)
     component: () => import('../views/Home.vue')
   },
   {
-    path: '/cart',
+    path: '/cart/',
     name: 'Cart',
     component: () => import('../views/Cart.vue')
   },
   {
-    path: '/product',
+    path: '/products/:id/',
     name: 'Product',
-    component: () => import('../views/Product.vue')
+    component: () => import('../views/Product.vue'),
+    props (route) {
+      const props = { ...route.params };
+      props.id = +props.id;
+      return props
+    }
   }
 ]
 
