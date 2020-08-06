@@ -8,7 +8,7 @@
                 </figure>
                 <h1 class="title is-5 mb-5">{{product.name}}</h1>
                 <p class="subtitle mb-4">${{product.price}}</p>
-                <button @click="removeFromCart(product.id)" class="button is-danger">Remove from Cart</button>
+                <remove-from-cart :productId="product.id"></remove-from-cart>
             </div>
         </div>
     </div>
@@ -16,6 +16,7 @@
 
 <script>
 import axios from '@/axios'
+import removeFromCart from '@/components/RemoveFromCart'
 
 export default {
     data () {
@@ -23,15 +24,13 @@ export default {
             cart: {}
         }
     },
+    components: {
+        'remove-from-cart': removeFromCart
+    },
     methods: {
         async getCart() {
             await axios.get(`cart`).then(response => {
                 this.cart = response.data
-            })
-        },
-        async removeFromCart (id) {
-            await axios.delete(`cart/${id}/`).then(() => {
-                this.cart = this.cart.filter(product => product.id !== id)
             })
         }
     },
