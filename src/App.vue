@@ -9,7 +9,7 @@
               <cart-btn :count="cartLength" class="level-right"></cart-btn>
           </div>
       </div>
-      <router-view/>
+      <router-view v-on:add-product-to-cart="onAddProductToCart"/>
   </div>
 </template>
 
@@ -36,6 +36,9 @@ export default {
             await axios.get(`cart`).then(response => {
                 this.cart = response.data
             })
+        },
+        onAddProductToCart (product) {
+            this.cart.unshift(product)
         }
     },
     created() {

@@ -14,7 +14,9 @@ export default {
     },
     methods: {
         addToCart () {
-            axios.post('cart', this.product)
+            axios.post('cart', this.product).then(() => {
+                this.$emit('add-product-to-cart')
+            })
         },
     }
 }
