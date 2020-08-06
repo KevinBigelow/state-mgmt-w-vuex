@@ -13,7 +13,9 @@ export default {
     },
     methods: {
         async removeFromCart (id) {
-            await axios.delete(`cart/${id}/`)
+            await axios.delete(`cart/${id}/`).then(() => {
+                this.$emit('remove-product-from-cart', this.productId)
+            })
         }
     }
 }
