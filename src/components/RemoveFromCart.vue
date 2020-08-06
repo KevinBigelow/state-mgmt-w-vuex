@@ -13,9 +13,7 @@ export default {
     },
     methods: {
         async removeFromCart (id) {
-            await axios.delete(`cart/${id}/`).then(() => {
-                this.cart = this.cart.filter(product => product.id !== id)
-            })
+            await axios.delete(`cart/${id}/`)
         }
     }
 }
