@@ -1,9 +1,9 @@
 <template>
-    <button @click="addToCart()" class="button is-primary">Add to Cart</button>
+    <button @click="addToCart(product)" class="button is-primary">Add to Cart</button>
 </template>
 
 <script>
-import axios from '@/axios'
+import { mapActions } from 'vuex'
 
 export default {
     props: {
@@ -13,11 +13,9 @@ export default {
         }
     },
     methods: {
-        addToCart () {
-            axios.post('cart', this.product).then(() => {
-                this.$emit('add-product-to-cart')
-            })
-        },
+        ...mapActions({
+            addToCart: 'addToCart'
+        })
     }
 }
 </script>

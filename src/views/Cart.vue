@@ -15,30 +15,28 @@
 </template>
 
 <script>
-import axios from '@/axios'
+import { mapGetters, mapActions } from 'vuex'
 import removeFromCart from '@/components/RemoveFromCart'
 
 export default {
-    data () {
-        return {
-            cart: []
-        }
+    computed: {
+        ...mapGetters({
+            cart: 'getCart'
+        })
     },
     components: {
         'remove-from-cart': removeFromCart
     },
     methods: {
-        async getCart() {
-            await axios.get(`cart`).then(response => {
-                this.cart = response.data
-            })
-        },
+        ...mapActions({
+            fetchCart: 'fetchCart'
+        }),
         onRemoveFromCart (productId) {
             this.cart = this.cart.filter(product => product.id !== productId)
         }
     },
     created () {
-        this.getCart()
+        this.fetchCart()
     }
 }
 </script>

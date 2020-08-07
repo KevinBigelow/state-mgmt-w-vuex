@@ -6,43 +6,19 @@
           </div>
           <div class="level-right">
               <router-link :to="{name: 'Products'}" class="level-left button mr-2">View All Products</router-link>
-              <cart-btn :count="cartLength" class="level-right"></cart-btn>
+              <cart-btn class="level-right"></cart-btn>
           </div>
       </div>
-      <router-view v-on:add-product-to-cart="onAddProductToCart"/>
+      <router-view/>
   </div>
 </template>
 
 <script>
 import cartBtn from '@/components/CartButton.vue'
-import axios from '@/axios'
 
 export default {
-    data () {
-        return {
-            cart: []
-        }
-    },
-    computed: {
-        cartLength () {
-            return this.cart.length
-        }
-    },
     components: {
         'cart-btn': cartBtn
-    },
-    methods: {
-        async getCart() {
-            await axios.get(`cart`).then(response => {
-                this.cart = response.data
-            })
-        },
-        onAddProductToCart (product) {
-            this.cart.unshift(product)
-        }
-    },
-    created() {
-        this.getCart()
     }
 }
 </script>

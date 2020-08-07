@@ -5,9 +5,21 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
-  props: {
-    count: Number
+  computed: {
+    ...mapGetters({
+      count: 'getCartLength'
+    })
+  },
+  methods: {
+    ...mapActions({
+      fetchCart: 'fetchCart'
+    })
+  },
+  created () {
+    this.fetchCart()
   }
 }
 </script>
