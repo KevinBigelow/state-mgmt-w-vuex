@@ -8,7 +8,7 @@
                 </figure>
                 <h1 class="title is-5 mb-5">{{product.name}}</h1>
                 <p class="subtitle mb-4">${{product.price}}</p>
-                <remove-from-cart :productId="product.id" v-on:remove-product-from-cart="onRemoveFromCart"></remove-from-cart>
+                <remove-from-cart :productId="product.id"></remove-from-cart>
             </div>
         </div>
     </div>
@@ -30,10 +30,7 @@ export default {
     methods: {
         ...mapActions({
             fetchCart: 'fetchCart'
-        }),
-        onRemoveFromCart (productId) {
-            this.cart = this.cart.filter(product => product.id !== productId)
-        }
+        })
     },
     created () {
         this.fetchCart()

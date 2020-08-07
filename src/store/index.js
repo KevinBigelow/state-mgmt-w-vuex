@@ -22,9 +22,15 @@ export default new Vuex.Store({
                 commit('addProductToCart', product)
             })
         },
+        async removeFromCart ({ commit }, id) {
+            await axios.delete(`cart/${id}/`).then(() => {
+                commit('removeProductFromCart', id)
+            })
+        }
     },
     mutations: {
         setCart: (state, cart) => (state.cart = cart),
-        addProductToCart: (state, product) => state.cart.unshift(product)
+        addProductToCart: (state, product) => state.cart.unshift(product),
+        removeProductFromCart: (state, productId) => state.cart = state.cart.filter(product => product.id !== productId)
     }
 })
