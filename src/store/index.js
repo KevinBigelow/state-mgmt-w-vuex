@@ -9,7 +9,9 @@ export default new Vuex.Store({
     },
     getters: {
         getCart: state => state.cart,
-        getCartLength: state => state.cart.length
+        getCartLength: (state, getters) => {
+            return getters.getCart.length
+        }
     },
     actions: {
         async fetchCart({ commit }) {
