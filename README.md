@@ -1,4 +1,5 @@
-# sans
+## Repo for Tutorial
+https://medium.com/p/79a68a612157/edit
 
 ## Project setup
 ```
@@ -19,6 +20,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
