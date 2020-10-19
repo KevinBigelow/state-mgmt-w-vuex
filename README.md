@@ -1,4 +1,5 @@
-# sans
+# State Management with Vuex
+https://medium.com/@kevinbigelow/implementing-a-basic-e-commerce-cart-with-and-without-vuex-79a68a612157
 
 ## Project setup
 ```
